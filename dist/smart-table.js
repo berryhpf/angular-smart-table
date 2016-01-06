@@ -22,7 +22,8 @@ ng.module('smart-table')
     },
     search: {
       delay: 400, // ms
-      inputEvent: 'input'
+      inputEvent: 'input',
+      keydownEvent: 'keydown'
     },
     select: {
       mode: 'single',
@@ -266,7 +267,7 @@ ng.module('smart-table')
         var tableCtrl = ctrl;
         var promise = null;
         var throttle = attr.stDelay || stConfig.search.delay;
-        var event = attr.stInputEvent || stConfig.search.inputEvent;
+        var event =  attr.stKeydownEvent || stConfig.search.keydownEvent;
 
         attr.$observe('stSearch', function (newValue, oldValue) {
           var input = element[0].value;
